@@ -2,6 +2,7 @@
 include __DIR__ . '/UserController.php';
 if (isset($_POST['registrati'])) {
     $successfull = UserController::save($_POST);
+    header("Location: ./signup-success.html");
 };
 ?>
 
@@ -9,7 +10,7 @@ if (isset($_POST['registrati'])) {
     <section class="register pt-5">
         <h1>Crea il tuo account</h1>
         <div class="container-form">
-            <form action="signup-success.html" method="POST">
+            <form method="POST">
                 <div class="input">
                     <label for="name">Inserisci il nome</label>
                     <input type="text" placeholder="Mario" id="name" name="name">
