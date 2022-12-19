@@ -1,15 +1,13 @@
 <?php
-class DatabaseConnection
-{
-    public static $host = "127.0.0.1";
+
+class DatabaseConnection{
+    public static $host = "localhost";
     public static $username = 'root';
     public static $password = 'root';
     public static $db = 'edusogno';
-    public static $port = '3306';
 
-    public static function connect_to_db()
-    {
-        $mysql = mysqli_connect($host, $username, $password, $db, $port);
+    public static function connect_to_db(){
+        $mysql = mysqli_connect(self::$host, self::$username, self::$password, self::$db);
         if ($mysql->connect_errno) {
             exit('Connection error: ' . $mysql->connect_error);
         };
@@ -18,10 +16,10 @@ class DatabaseConnection
 
     public static function request($query, $typeQuery)
     {
-        $mysql = connect_to_db();
+        $mysql = self::connect_to_db();
         if ($typeQuery === 'INSERT' || $typeQuery === 'UPDATE') {
             if (false === mysqli_query($mysql, $query)) {
-                exit("Error: Query error " . mysqli_error($mysql));
+                exit("Errore: impossibile eseguire la query. " . mysqli_error($mysql));
             };
             return;
         };
@@ -38,4 +36,7 @@ class DatabaseConnection
         mysqli_close($mysql);
     }
 }
+
+
+
 ?>
