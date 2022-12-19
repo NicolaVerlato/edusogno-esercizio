@@ -1,22 +1,14 @@
 <?php
 session_start();
-$_SESSION['isAuthorized'] = false;
+
 include __DIR__ . '/UserController.php';
-if (isset($_POST['login'])) {
-    $response = UserController::validate($_POST['email'], $_POST['password']);
-    if (is_object($response)) {
-        $_SESSION['nome'] = $response->nome;
-        $_SESSION['email'] = $response->email;
-        $_SESSION['password'] = $response->password;
-        header("Location: ./index.php");
-    }
-    $_SESSION['isAuthorized'] = true;
+if (isset($_POST['reset'])) {
+    $response = UserController::resetPassword($_POST['email'], $_POST['password']);
 } else{
     $response = null;
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,18 +30,16 @@ if (isset($_POST['login'])) {
     </header>
     <main>
         <section class="container">
-            <h1 class="center blue">Hai già un account?</h1>
+            <h1 class="center blue">Non ricordi la password?</h1>
             
             <div class="form row">
-                    <?php if ($response == 'email error' || $response == 'password error') : ?>
-                        <div class="error-text">
-                            <p>Login invalido</p>
-                        </div>
-                    <?php elseif ($response == 'email error' && $response == 'Ppassword error') : ?>
-                        <div class="error-text">
-                            <p>Login invalido</p>
-                        </div>
-                    <?php endif; ?>
+
+                <?php if ($response == 'email error') : ?>
+                    <div>
+                        <p class="error-text">Questa mail non è presente nel nostro database</p>
+                    </div>
+                <?php endif; ?>
+
                 <form class="col" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     
                     <div class="input">
@@ -58,15 +48,11 @@ if (isset($_POST['login'])) {
                     </div>
 
                     <div class="input">
-                        <label for="password">Inserisci la password</label>
+                        <label for="password">Inserisci la nuova password</label>
                         <input type="password" name="password" id="password" placeholder="Scrivila qui"> 
                     </div>
                     <div class="actions">
-                        <button type="submit" name="login" class="btn">ACCEDI</button>
-                    </div>
-                    <div class="question-link">
-                        <p>Non ricordi la password? <a href="./reset-password.php">Recuperala qui</a></p>
-                        <p>Non hai ancora un profilo? <a href="./signup.php">Registrati</a></p>
+                        <button type="submit" name="reset" class="btn">Reimposta Password</button>
                     </div>
                 </form>
             </div>

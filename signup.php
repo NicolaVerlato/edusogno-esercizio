@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '/UserController.php';
 if (isset($_POST['registrati'])) {
-    $successfull = UserController::save($_POST);
+    $successfull = UserController::store($_POST);
     header("Location: ./signup-success.html");
 };
 ?>

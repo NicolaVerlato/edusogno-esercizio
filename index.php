@@ -1,7 +1,7 @@
 <?php
 session_start();
 include __DIR__ . '/UserController.php';
-$response = UserController::events($_SESSION['email']);
+$response = UserController::getEvents($_SESSION['email']);
 if ($response) {
     $userEvents = $response->fetch_all(MYSQLI_ASSOC);
 }
