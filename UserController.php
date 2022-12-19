@@ -17,13 +17,13 @@ class UserController
         $response = DatabaseConnection::request($query, 'SELECT');
 
         if (!$response) {
-            $result = 'Email errata';
+            $result = 'email error';
             return $result;
         }
 
         $result = $response->fetch_object();
         if ($result->password !== $password) {
-            $result = 'Password sbagliata';
+            $result = 'password error';
         }
         return $result;
     }

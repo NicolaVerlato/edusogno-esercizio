@@ -1,0 +1,102 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    width: 100%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+.center{
+    text-align: center;
+}
+.blue{
+    color: #144077;
+}
+.flex{
+    display: flex;
+}
+.form{
+    width: 50%;
+    margin: 0 auto;
+}
+input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 20px 0;
+    padding: 5px 0;
+    font-size: 20px;
+}
+::placeholder{
+    color: lightgrey;
+}
+.btn{
+    background-color: #0057ff;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+}
+
+/* Header */
+header{
+    height: 115px;
+    width: 100%;
+    border-radius: 0 0 13px 13px;
+    box-shadow: 0px 21px 33px -26px #0057ff;
+    z-index: 10;
+    position: fixed;
+    background-color: white;
+}
+.logo{
+    width: 200px;
+    padding: 25px;
+}
+
+/* Main */
+main{
+    padding-top: 115px;
+    height: 100vh;
+    background-image: url(../img/winter-blue-pink-gradient-background-vector_53876-117276.webp);
+}
+section{
+    margin-top: 120px;
+    padding: 60px 0;
+}
+.row{
+    padding: 50px;
+}
+.col{
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    border: 1px solid black;
+}
+.transparent{
+    color: rgba(0, 0, 0, 0.4);
+    padding: 5px 0 8px 0;
+}
+.question-link{
+    text-align: center;
+    font-size: 13px;
+    margin-top: 30px;
+    text-decoration: underline;
+}
+.actions{
+    margin-top: 20px;
+}
+.error-text {
+    color: red;
+  }
