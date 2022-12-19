@@ -1,6 +1,6 @@
 <?php
 include __DIR__ . '/UserController.php';
-if (isset($_POST['registrati'])) {
+if (isset($_POST['signup'])) {
     $successfull = UserController::store($_POST);
     header("Location: ./signup-success.html");
 };
@@ -8,7 +8,6 @@ if (isset($_POST['registrati'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +45,7 @@ if (isset($_POST['registrati'])) {
                         <input type="password" name="password" id="password" placeholder="Scrivila qui">
                     </div>
                     <div class="actions">
-                        <button type="submit" name="registrati" class="btn">REGISTRATI</button>
+                        <button type="submit" name="signup" class="btn">REGISTRATI</button>
                     </div>
                     <p class="question-link">Hai già un account? <a href="./login.php">Accedi</a></p>
                 </form>
