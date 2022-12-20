@@ -30,10 +30,10 @@ if ($response) {
         <section class="container">
             <h1 class="center blue">Ciao <?= $_SESSION['nome']; ?> ecco i tuoi eventi</h1>
 
-                <div class="flex row">
+                <div class="flex row row-card">
                     <?php if ($response) : ?>
                         <?php foreach ($userEvents as $event) : ?>
-                            <div class="col">
+                            <div class="col card">
                                 <div class="bullet">
                                     <h2><?= $event['nome_evento'] ?></h2>
                                     <p class="transparent"><?= $event['data_evento'] ?></p>
@@ -44,7 +44,7 @@ if ($response) {
                             </div>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <div class="col">
+                        <div class="col card">
                             <div class="bullet no-event">
                                 <h2>NESSUN EVENTO</h2>
                             </div>
